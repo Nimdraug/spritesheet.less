@@ -1,0 +1,13 @@
+.sprite-sheet( @w, @h, @url )
+{
+    display: inline-block;
+    width: @w;
+    height: @h;
+    background: @url;
+    float: left;
+    
+    .sprite( @col, @row )
+    {
+        background-position: -@col * @w -@row * @h;
+    }
+}
