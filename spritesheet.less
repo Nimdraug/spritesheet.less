@@ -1,3 +1,35 @@
+/*
+Sprite Sheet
+Simplifies sprite sheet usage in less
+
+Example:
+.icon
+{
+    .sprite-sheet( 32px, 32px, url( images/icon-sheet.png ) );
+    
+    .top-hat
+    {
+        .sprite-sheet .sprite( 0, 0 );
+    }
+    
+    .fedora
+    {
+        .sprite-sheet .sprite( 1, 0 );
+    }
+    
+    .bowler-hat
+    {
+        .sprite-sheet .sprite( 0, 1 );
+    }
+    
+    .fez
+    {
+        .sprite-sheet .sprite( 1, 1 );
+    }
+}
+
+*/
+
 .sprite-sheet( @w, @h, @url )
 {
     display: inline-block;
