@@ -32,6 +32,9 @@ Example:
 
 .sprite-sheet( @w, @h, @url )
 {
+    @icon-width:  @w;
+    @icon-height: @h;
+
     display: inline-block;
     width: @w;
     height: @h;
@@ -39,6 +42,6 @@ Example:
     
     .sprite( @col, @row )
     {
-        background-position: -@col * @w -@row * @h;
+        background-position: -@col * @icon-width -@row * @icon-height;
     }
 }
