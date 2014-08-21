@@ -51,9 +51,11 @@ Example:
 
         .sprite( @col, @row )
         {
-            width:  @sprite-width;
-            height: @sprite-height;
-            background-position: -@area-x - @col * @sprite-width -@area-y - @row * @sprite-height;
+            #sprite-sheet .sprite(
+                @area-x - @col * @sprite-width,
+                @area-y - @row * @sprite-height,
+                @sprite-width, @sprite-height
+            );
         }
     }
 }
