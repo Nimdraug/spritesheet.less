@@ -8,22 +8,22 @@ Example of a sprite sheet with only one sprite area:
     #sprite-sheet( url( images/icon-sheet.png ) );
     #sprite-sheet .area( 0, 0, 32px, 32px );
     
-    .top-hat
+    &.top-hat
     {
         #sprite-sheet .area .sprite( 0, 0 );
     }
     
-    .fedora
+    &.fedora
     {
         #sprite-sheet .area .sprite( 1, 0 );
     }
     
-    .bowler-hat
+    &.bowler-hat
     {
         #sprite-sheet .area .sprite( 0, 1 );
     }
     
-    .fez
+    &.fez
     {
         #sprite-sheet .area .sprite( 1, 1 );
     }
@@ -45,32 +45,32 @@ Example of sprite sheet with two sprite areas:
         #sprite-sheet .area( 0, 32px, 16px, 16px );
     }
 
-    .big-top-hat
+    &.big-top-hat
     {
         .big-hats .sprite( 0, 0 );
     }
 
-    .big-fez
+    &.big-fez
     {
         .big-hats .sprite( 1, 0 );
     }
 
-    .big-stetson
+    &.big-stetson
     {
         .big-hats .sprite( 2, 0 );
     }
 
-    .small-top-hat
+    &.small-top-hat
     {
         .small-hats .sprite( 0, 0 );
     }
 
-    .small-fez
+    &.small-fez
     {
         .small-hats .sprite( 1, 0 );
     }
 
-    .small-stetson
+    &.small-stetson
     {
         .small-hats .sprite( 2, 0 );
     }
