@@ -75,6 +75,13 @@ Example of sprite sheet with two sprite areas:
         .small-hats .sprite( 2, 0 );
     }
 }
+
+Example of automatic area generation:
+.icon
+{
+    #sprite-sheet( url( images/icon-sheet.png ) );
+    #sprite-sheet .generate-area( 0, 0, 32px, 32px, 4, 2 );
+}
 */
 
 #sprite-sheet( @url )
