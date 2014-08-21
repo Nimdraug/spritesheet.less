@@ -30,18 +30,30 @@ Example:
 
 */
 
-.sprite-sheet( @w, @h, @url )
+#sprite-sheet( @url )
 {
-    @icon-width:  @w;
-    @icon-height: @h;
-
     display: inline-block;
-    width: @w;
-    height: @h;
     background: @url;
-    
-    .sprite( @col, @row )
+
+    .sprite( @x, @y, @w, @h )
     {
-        background-position: -@col * @icon-width -@row * @icon-height;
+        width: @w;
+        height: @h;
+        background-position: -@x -@y;
+    }
+
+    .area( @x, @y, @w, @h )
+    {
+        @area-x: @x;
+        @area-y: @y;
+        @sprite-width:  @w;
+        @sprite-height: @h;
+
+        .sprite( @col, @row )
+        {
+            width:  @sprite-width;
+            height: @sprite-height;
+            background-position: -@area-x - @col * @sprite-width -@area-y - @row * @sprite-height;
+        }
     }
 }
