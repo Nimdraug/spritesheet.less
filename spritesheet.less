@@ -2,32 +2,79 @@
 Sprite Sheet
 Simplifies sprite sheet usage in less
 
-Example:
+Example of a sprite sheet with only one sprite area:
 .icon
 {
-    .sprite-sheet( 32px, 32px, url( images/icon-sheet.png ) );
+    #sprite-sheet( url( images/icon-sheet.png ) );
+    #sprite-sheet .area( 0, 0, 32px, 32px );
     
     .top-hat
     {
-        .sprite-sheet .sprite( 0, 0 );
+        #sprite-sheet .area .sprite( 0, 0 );
     }
     
     .fedora
     {
-        .sprite-sheet .sprite( 1, 0 );
+        #sprite-sheet .area .sprite( 1, 0 );
     }
     
     .bowler-hat
     {
-        .sprite-sheet .sprite( 0, 1 );
+        #sprite-sheet .area .sprite( 0, 1 );
     }
     
     .fez
     {
-        .sprite-sheet .sprite( 1, 1 );
+        #sprite-sheet .area .sprite( 1, 1 );
     }
 }
 
+Example of sprite sheet with two sprite areas:
+.icon
+{
+    #sprite-sheet( url( images/icon-sheet.png ) );
+
+    // Define the sprite areas
+    .big-hats
+    {
+        #sprite-sheet .area( 0, 0, 32px, 32px );
+    }
+    
+    .small-hats
+    {
+        #sprite-sheet .area( 0, 32px, 16px, 16px );
+    }
+
+    .big-top-hat
+    {
+        .big-hats .sprite( 0, 0 );
+    }
+
+    .big-fez
+    {
+        .big-hats .sprite( 1, 0 );
+    }
+
+    .big-stetson
+    {
+        .big-hats .sprite( 2, 0 );
+    }
+
+    .small-top-hat
+    {
+        .small-hats .sprite( 0, 0 );
+    }
+
+    .small-fez
+    {
+        .small-hats .sprite( 1, 0 );
+    }
+
+    .small-stetson
+    {
+        .small-hats .sprite( 2, 0 );
+    }
+}
 */
 
 #sprite-sheet( @url )
