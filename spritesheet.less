@@ -82,6 +82,14 @@ Example of automatic area generation:
     #sprite-sheet( url( images/icon-sheet.png ) );
     #sprite-sheet .generate-area( 0, 0, 32px, 32px, 4, 2 );
 }
+
+Example of automatic named sprite generation:
+.icon
+{
+    #sprite-sheet( url( images/icon-sheet.png ) );
+    @names: top-hat, fez, stenton;
+    #sprite-sheet .generate-named-area( 0, 0, 32px, 32px, 2, @names );
+}
 */
 
 #sprite-sheet( @url )
