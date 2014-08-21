@@ -105,4 +105,26 @@ Example of sprite sheet with two sprite areas:
             );
         }
     }
+
+    .generate-area( @x, @y, @w, @h, @cols, @rows )
+    {
+        #sprite-sheet .area( @x, @y, @w, @h );
+
+        .generate-sprites( @cols, @rows, @col: 0, @row: 0 ) when ( @col < @cols ) and ( @row < @rows )
+        {
+            .sprite-@{col}-@{row}
+            {
+                #sprite-sheet .area .sprite( @col, @row );
+            }
+
+            #sprite-sheet .generate-area .generate-sprites( @cols, @rows, @col + 1, @row );
+        }
+        
+        .generate-sprites( @cols, @rows, @col: 0, @row: 0 ) when ( @col >= @cols ) and ( @row < @rows )
+        {
+            #sprite-sheet .generate-area .generate-sprites( @cols, @rows, 0, @row + 1 );
+        }
+
+        #sprite-sheet .generate-area .generate-sprites( @cols, @rows );
+    }
 }
