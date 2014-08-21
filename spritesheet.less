@@ -134,4 +134,25 @@ Example of automatic area generation:
 
         #sprite-sheet .generate-area .generate-sprites( @cols, @rows );
     }
+
+    .generate-named-area( @x, @y, @w, @h, @cols, @names )
+    {
+        #sprite-sheet .area( @x, @y, @w, @h );
+
+        .generate-named-sprites( @cols, @names, @nameidx: 0 ) when ( @nameidx < length( @names ) )
+        {
+            @name: extract( @names, @nameidx + 1 );
+            @col:  mod( @nameidx, @cols );
+            @row:  floor( @nameidx / @cols );
+
+            .@{name}
+            {
+                #sprite-sheet .area .sprite( @col, @row );
+            }
+
+            #sprite-sheet .generate-named-area .generate-named-sprites( @cols, @names, @nameidx + 1 );
+        }
+
+        #sprite-sheet .generate-named-area .generate-named-sprites( @cols, @names );
+    }
 }
