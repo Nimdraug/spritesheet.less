@@ -127,7 +127,7 @@ Example of automatic named sprite generation:
 
         .generate-sprites( @cols, @rows, @col: 0, @row: 0 ) when ( @col < @cols ) and ( @row < @rows )
         {
-            .sprite-@{col}-@{row}
+            &.sprite-@{col}-@{row}
             {
                 #sprite-sheet .area .sprite( @col, @row );
             }
@@ -153,7 +153,7 @@ Example of automatic named sprite generation:
             @col:  mod( @nameidx, @cols );
             @row:  floor( @nameidx / @cols );
 
-            .@{name}
+            &.@{name}
             {
                 #sprite-sheet .area .sprite( @col, @row );
             }
