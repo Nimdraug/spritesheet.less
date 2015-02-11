@@ -113,7 +113,7 @@ Example of automatic named sprite generation:
 
         .sprite( @col, @row )
         {
-            #sprite-sheet .sprite(
+            .sprite(
                 @area-x - @col * @sprite-width,
                 @area-y - @row * @sprite-height,
                 @sprite-width, @sprite-height
@@ -123,29 +123,29 @@ Example of automatic named sprite generation:
 
     .generate-area( @x, @y, @w, @h, @cols, @rows )
     {
-        #sprite-sheet .area( @x, @y, @w, @h );
+        .area( @x, @y, @w, @h );
 
         .generate-sprites( @cols, @rows, @col: 0, @row: 0 ) when ( @col < @cols ) and ( @row < @rows )
         {
             &.sprite-@{col}-@{row}
             {
-                #sprite-sheet .area .sprite( @col, @row );
+                .sprite( @col, @row );
             }
 
-            #sprite-sheet .generate-area .generate-sprites( @cols, @rows, @col + 1, @row );
+            .generate-sprites( @cols, @rows, @col + 1, @row );
         }
         
         .generate-sprites( @cols, @rows, @col: 0, @row: 0 ) when ( @col >= @cols ) and ( @row < @rows )
         {
-            #sprite-sheet .generate-area .generate-sprites( @cols, @rows, 0, @row + 1 );
+            .generate-sprites( @cols, @rows, 0, @row + 1 );
         }
 
-        #sprite-sheet .generate-area .generate-sprites( @cols, @rows );
+        .generate-sprites( @cols, @rows );
     }
 
     .generate-named-area( @x, @y, @w, @h, @cols, @names )
     {
-        #sprite-sheet .area( @x, @y, @w, @h );
+        .area( @x, @y, @w, @h );
 
         .generate-named-sprites( @cols, @names, @nameidx: 0 ) when ( @nameidx < length( @names ) )
         {
@@ -155,12 +155,12 @@ Example of automatic named sprite generation:
 
             &.@{name}
             {
-                #sprite-sheet .area .sprite( @col, @row );
+                .sprite( @col, @row );
             }
 
-            #sprite-sheet .generate-named-area .generate-named-sprites( @cols, @names, @nameidx + 1 );
+            .generate-named-sprites( @cols, @names, @nameidx + 1 );
         }
 
-        #sprite-sheet .generate-named-area .generate-named-sprites( @cols, @names );
+        .generate-named-sprites( @cols, @names );
     }
 }
