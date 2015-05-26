@@ -114,8 +114,8 @@ Example of automatic named sprite generation:
         .sprite( @col, @row )
         {
             .sprite(
-                @area-x - @col * @sprite-width,
-                @area-y - @row * @sprite-height,
+                @area-x + @col * @sprite-width,
+                @area-y + @row * @sprite-height,
                 @sprite-width, @sprite-height
             );
         }
