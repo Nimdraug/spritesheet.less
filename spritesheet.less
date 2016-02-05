@@ -111,13 +111,12 @@ Example of automatic named sprite generation:
         @sprite-width:  @w;
         @sprite-height: @h;
 
+        width: @w;
+        height: @h;
+
         .sprite( @col, @row )
         {
-            .sprite(
-                @area-x + @col * @sprite-width,
-                @area-y + @row * @sprite-height,
-                @sprite-width, @sprite-height
-            );
+            background-position: -( @area-x + @col * @sprite-width ) -( @area-y + @row * @sprite-height );
         }
     }
 
